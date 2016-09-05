@@ -45,7 +45,7 @@ public class ShowNoteFragment extends Fragment {
         // Get the note icon basaed on the category ** getSerializableExtra is called because we are returning an enum data type**
         Note.Category noteCat = (Note.Category) intent.getSerializableExtra(MainActivity.EXTRA_NOTE_CATEGORY);
         // If there is no value passed to extra
-        icon.setImageResource(R.drawable.p);
+        icon.setImageResource(Note.categoryToDrawable(noteCat));
 
         // Inflate the layout for this fragment
         return fragmentLayout;

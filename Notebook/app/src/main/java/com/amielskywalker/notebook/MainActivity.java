@@ -27,8 +27,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
 
 
+    /* Make sures that when a user finished editing or creating a new note and gets sent back to
+    * the MainActivity, and pressed back button the application will close.*/
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 
     @Override
@@ -58,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
             // Send an intent with the extra info for which activity will be launched by the ShowNoteActivity
             intent.putExtra(MainActivity.EXTRA_NOTE_FRAGMENT_TO_LOAD, FragmentToLaunch.CREATE);
+
+            // Start the ShowNoteActivity and pass the intent
             startActivity(intent);
 
             return true;
