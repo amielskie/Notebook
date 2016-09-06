@@ -133,7 +133,6 @@ public class MainActivityListFragment extends ListFragment {
                 intent.putExtra(MainActivity.EXTRA_NOTE_FRAGMENT_TO_LOAD, MainActivity.FragmentToLaunch.EDIT);
                 break;
         }
-
         // Start Activity
         startActivity(intent);
 

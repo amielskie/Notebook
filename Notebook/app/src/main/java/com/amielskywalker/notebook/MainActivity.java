@@ -39,12 +39,24 @@ public class MainActivity extends AppCompatActivity {
         loadPreferences();
     }
 
+    @Override
+    public void onResume() {
+        // After a pause or at startup
+        super.onResume();
 
-    /* Make sures that when a user finished editing or creating a new note and gets sent back to
-    * the MainActivity, and pressed back button the application will close.*/
+        //Refresh the activity
+        loadPreferences();
+
+        // Change transition animation
+        //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_in);
+
+    }
+
     @Override
     public void onBackPressed() {
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+        /* Make sures that when a user finished editing or creating a new note and gets sent back to
+         * the MainActivity, and pressed back button the application will close.*/
         moveTaskToBack(true);
     }
 
@@ -95,15 +107,16 @@ public class MainActivity extends AppCompatActivity {
         // Get key from AppPreference layout for theme color * False is default value*
         boolean isBackgroundLight = sharedPreferences.getBoolean("theme_color", false);
 
+        // Reference to the layout background on content_main
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainActivityLayout);
+
         // Change background color according to user
         if(isBackgroundLight) {
             // Main Activity Background
-            LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainActivityLayout);
             mainLayout.setBackgroundResource(R.color.background_color_light);
-
         }
         else {
-            Log.d("DARK_BACKGROUND" , "Background is DARK!");
+            mainLayout.setBackgroundResource(R.color.backgroundColor);
         }
 
         // Set the title that the user typed in

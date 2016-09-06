@@ -17,9 +17,6 @@ public class AppPreferences extends AppCompatActivity {
 
             // Add the preferences fragment
             addPreferencesFromResource(R.xml.app_preferences);
-
-
-
         }
     } // END OF SettingFragment Inner class
 

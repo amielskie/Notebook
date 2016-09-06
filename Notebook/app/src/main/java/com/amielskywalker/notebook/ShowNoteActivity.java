@@ -18,6 +18,15 @@ public class ShowNoteActivity extends AppCompatActivity {
         createAndAddFragment();
     }
 
+    @Override
+    public void onResume() {
+        // After a pause or at startup
+        super.onResume();
+
+        // Change transition animation
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_in_left);
+    }
+
     // Creates and adds fragment to the activity_show_note layout
     private void createAndAddFragment() {
 
