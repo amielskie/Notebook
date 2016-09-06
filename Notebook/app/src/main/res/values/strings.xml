@@ -4,6 +4,7 @@
     <!-- MAIN MENU TITLE -->
     <string name="action_add_note">Add Note</string>
     <string name="action_settings">Settings</string>
+    <string name="title_preferences">Application Settings</string>
 
     <!-- NOTE VALUES -->
     <string name="show_Note_Title">Note</string>
@@ -13,4 +14,8 @@
     <!-- MENU ITEMS-->
     <string name="long_press_menu_edit">Edit Note</string>
     <string name="long_press_menu_delete">Delete Note</string>
+
+    <!-- HINTS -->
+    <string name="message_hint">Type message here...</string>
+    <string name="title_hint">Title</string>
 </resources>

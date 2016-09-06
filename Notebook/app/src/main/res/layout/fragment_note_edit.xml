@@ -27,6 +27,8 @@
         android:background="#414648">
 
         <EditText
+            android:textStyle="normal"
+            android:hint="@string/title_hint"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,8 +36,7 @@
             android:id="@+id/editNoteTitle"
             android:textColor="#ffffff"
             android:minLines="1"
-            android:inputType="text"
-            android:text="Note Title Here"/>
+            android:inputType="text" />
 
     </ScrollView>
 
@@ -51,7 +52,10 @@
         android:layout_above="@id/editScrollView">
 
         <EditText
+            android:textStyle="normal"
+            android:hint="@string/message_hint"
             android:background="#414648"
+            android:paddingLeft="10dp"
             android:paddingBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,8 +64,7 @@
             android:inputType="textMultiLine"
             android:textSize="18sp"
             android:paddingTop="15dp"
-            android:gravity="top"
-            android:text="Test" />
+            android:gravity="top" />
     </ScrollView>
 
     <Button

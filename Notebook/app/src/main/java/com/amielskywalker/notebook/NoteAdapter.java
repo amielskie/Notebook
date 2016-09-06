@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class NoteAdapter extends ArrayAdapter<Note>{
         TextView title;
         TextView message;
         ImageView noteIcon;
+        RelativeLayout layout;
     }
 
 
@@ -47,6 +49,7 @@ public class NoteAdapter extends ArrayAdapter<Note>{
             viewHolder.title = (TextView) convertView.findViewById(R.id.listItemNoteTitle);
             viewHolder.message = (TextView) convertView.findViewById(R.id.listItemNoteMessage);
             viewHolder.noteIcon = (ImageView) convertView.findViewById(R.id.listItemNoteImg);
+            viewHolder.layout = (RelativeLayout) convertView.findViewById(R.id.note_list_layout);
 
             // User set tag to remember the view holder that is holding the references to the widgets.
             convertView.setTag(viewHolder);

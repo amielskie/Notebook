@@ -21,6 +21,11 @@
         <activity
             android:name=".ShowNoteActivity"
             android:label="@string/show_Note_Title"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".AppPreferences"
+            android:label="@string/title_preferences"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

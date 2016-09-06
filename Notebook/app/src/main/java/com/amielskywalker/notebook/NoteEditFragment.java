@@ -211,7 +211,7 @@ public class NoteEditFragment extends Fragment {
                 // Send the user back to the list of notes (MainActivity)
                 Intent intent = new Intent(getActivity(), MainActivity.class);
 
-                // Prevents user from going back to edit or create new activity, user is sent back to the main activity
+                // Prevents user from going back to previous editActivity or createNewActivity, user is sent back to the main activity
                 getActivity().finish();
 
                 // Send intent

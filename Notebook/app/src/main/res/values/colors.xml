@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="backgroundColor">#242729</color>
     <color name="listViewColor">#383A3B</color>
+
+    <!-- LIGHT THEME -->
+    <color name="background_color_light">#D6E1E9</color>
+    <color name="font_color_light">#000000</color>
 </resources>

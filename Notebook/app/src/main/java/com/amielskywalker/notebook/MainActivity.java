@@ -1,14 +1,21 @@
 package com.amielskywalker.notebook;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Load preference settings
+        loadPreferences();
     }
 
 
@@ -34,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     * the MainActivity, and pressed back button the application will close.*/
     @Override
     public void onBackPressed() {
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         moveTaskToBack(true);
     }
 
@@ -53,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(this, AppPreferences.class);
+            startActivity(intent);
+            return false;
         }
 
         // If action_add_note button was clicked
@@ -71,6 +84,47 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
-}
+
+    public void loadPreferences() {
+        // Get a preference from any preference screen from any activity in the application
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // Get key from AppPreference layout for theme color * False is default value*
+        boolean isBackgroundLight = sharedPreferences.getBoolean("theme_color", false);
+
+        // Change background color according to user
+        if(isBackgroundLight) {
+            // Main Activity Background
+            LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainActivityLayout);
+            mainLayout.setBackgroundResource(R.color.background_color_light);
+
+        }
+        else {
+            Log.d("DARK_BACKGROUND" , "Background is DARK!");
+        }
+
+        // Set the title that the user typed in
+        String notebookTitle = sharedPreferences.getString("title" , "Notebook");
+        setTitle(notebookTitle);
+
+    }
+}// END OF CLASS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
